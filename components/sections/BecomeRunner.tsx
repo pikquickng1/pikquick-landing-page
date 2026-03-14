@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
+import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll';
 import { MdOutlineCalendarToday, MdOutlineCheckCircle } from "react-icons/md";
 import { BiWallet } from "react-icons/bi";
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -29,7 +30,8 @@ export function BecomeRunner({ onOpenWaitlist }: BecomeRunnerProps) {
   ];
 
   return (
-    <section className="relative bg-[#F9FAFB] py-12 sm:py-16 md:py-20 lg:py-24" style={{ fontFamily: 'var(--font-inter)' }}>
+    <section id="earn" className="relative bg-[#F9FAFB] py-12 sm:py-16 md:py-20 lg:py-24 scroll-mt-20" style={{ fontFamily: 'var(--font-inter)' }}>
+      <AnimateOnScroll>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10">
         
         {/* Card Container */}
@@ -92,6 +94,7 @@ export function BecomeRunner({ onOpenWaitlist }: BecomeRunnerProps) {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }

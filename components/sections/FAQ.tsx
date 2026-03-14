@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { HiPlus, HiMinus } from 'react-icons/hi';
+import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll';
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -38,7 +39,8 @@ export function FAQ() {
   };
 
   return (
-    <section className="relative bg-[#F9FAFB] md:bg-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32" style={{ fontFamily: 'var(--font-inter)' }}>
+    <section id="faq" className="relative bg-[#F9FAFB] md:bg-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 scroll-mt-20" style={{ fontFamily: 'var(--font-inter)' }}>
+      <AnimateOnScroll>
       <div className="container mx-auto sm:px-6 md:px-8 lg:px-8 xl:px-10">
         
         {/* Background Container */}
@@ -95,6 +97,7 @@ export function FAQ() {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }

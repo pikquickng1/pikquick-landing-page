@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const navigation = [
-  { name: 'How it Works', href: '#how-it-works' },
-  { name: 'Errands', href: '#errands' },
-  { name: 'Earn', href: '#earn' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'How it Works', href: '#how-it-works', id: 'how-it-works' },
+  { name: 'Errands', href: '#errands', id: 'errands' },
+  { name: 'Earn', href: '#earn', id: 'earn' },
+  { name: 'FAQ', href: '#faq', id: 'faq' },
 ];
 
 interface HeaderProps {
@@ -17,6 +17,7 @@ interface HeaderProps {
 
 export function Header({ onOpenWaitlist }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,33 @@ export function Header({ onOpenWaitlist }: HeaderProps) {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sections = navigation.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <header
@@ -89,7 +117,10 @@ export function Header({ onOpenWaitlist }: HeaderProps) {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-[#4A5565] transition-colors duration-200 hover:text-[#4A85E4]"
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`text-sm font-medium transition-colors duration-200 hover:text-[#4A85E4] ${
+                    activeSection === item.id ? 'text-[#4A85E4]' : 'text-[#4A5565]'
+                  }`}
                   style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   {item.name}

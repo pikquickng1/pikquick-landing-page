@@ -2,6 +2,7 @@ import { FiPlusCircle, FiUserCheck, FiCheckCircle } from "react-icons/fi";
 import { RiWallet3Line } from "react-icons/ri";
 import { FiUserPlus } from "react-icons/fi";
 import { IoFlashOutline } from "react-icons/io5";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 
 
@@ -49,7 +50,8 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="relative bg-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32" style={{ fontFamily: 'var(--font-inter)' }}>
+    <section id="how-it-works" className="relative bg-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 scroll-mt-20" style={{ fontFamily: 'var(--font-inter)' }}>
+      <AnimateOnScroll>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10">
         
         {/* Header */}
@@ -140,6 +142,7 @@ export function HowItWorks() {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }

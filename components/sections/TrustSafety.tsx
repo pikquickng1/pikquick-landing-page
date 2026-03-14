@@ -1,9 +1,9 @@
 import { HiOutlineShieldCheck } from "react-icons/hi";
 import { FiUserCheck } from "react-icons/fi";
-
 import { MdOutlinePayment } from "react-icons/md";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 export function TrustSafety() {
   const features = [
@@ -38,6 +38,7 @@ export function TrustSafety() {
         <div className="absolute right-1/4 top-1/3 h-48 w-48 rounded-full bg-white/5 blur-3xl sm:h-64 sm:w-64"></div>
       </div>
 
+      <AnimateOnScroll>
       <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           
@@ -88,6 +89,7 @@ export function TrustSafety() {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }

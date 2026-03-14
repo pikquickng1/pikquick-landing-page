@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
+import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll'
 
 interface HeroSectionProps {
   onOpenWaitlist: () => void;
@@ -12,6 +13,7 @@ export function HeroSection({ onOpenWaitlist }: HeroSectionProps) {
       {/* Background Gradient */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#F1F7FF_0%,#F9FAFB_70%,#F9FAFB_100%)]" />
 
+      <AnimateOnScroll>
       <div className="container mx-auto px-4 py-6 sm:px-6 sm:py-8 md:py-10 lg:px-8 lg:py-12 xl:py-16">
         <div className="grid items-center gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:gap-10 xl:gap-16">
 
@@ -57,6 +59,7 @@ export function HeroSection({ onOpenWaitlist }: HeroSectionProps) {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   )
 }

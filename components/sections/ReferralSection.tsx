@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/Button';
 import { FiUsers } from "react-icons/fi";
 import { LuGift } from "react-icons/lu";
 import { LuTrophy } from "react-icons/lu";
+import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll';
 
 interface ReferralSectionProps {
   onOpenWaitlist: () => void;
@@ -24,6 +25,7 @@ export function ReferralSection({ onOpenWaitlist }: ReferralSectionProps) {
         </div>
       </div>
 
+      <AnimateOnScroll>
       <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10">
         
         {/* Content Card */}
@@ -73,6 +75,7 @@ export function ReferralSection({ onOpenWaitlist }: ReferralSectionProps) {
           </div>
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }

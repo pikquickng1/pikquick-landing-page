@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll';
 
 export function ErrandsSection() {
   const errands = [
@@ -30,7 +31,8 @@ export function ErrandsSection() {
   ];
 
   return (
-    <section className="relative bg-[#F9FAFB] py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32" style={{ fontFamily: 'var(--font-inter)' }}>
+    <section id="errands" className="relative bg-[#F9FAFB] py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 scroll-mt-20" style={{ fontFamily: 'var(--font-inter)' }}>
+      <AnimateOnScroll>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10">
         
         {/* Header */}
@@ -72,6 +74,7 @@ See how people are using Pikquick to simplify their daily lives.          </p>
           ))}
         </div>
       </div>
+      </AnimateOnScroll>
     </section>
   );
 }
